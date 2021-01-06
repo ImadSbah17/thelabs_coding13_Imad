@@ -1,5 +1,11 @@
 <?php
 
+use App\Models\Blog;
+use App\Models\Blogpost;
+use App\Models\Contact;
+use App\Models\Elements;
+use App\Models\Homelabs;
+use App\Models\Service;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,9 +23,22 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/blog', function () {
-    return view('pages.blog');
-});
+
+// mes routes pour mes pages
+
+Route::resource('/blog-post', Blogpost::class)->middleware('auth');
+Route::resource('/blog', Blog::class)->middleware('auth');
+Route::resource('/contact', Contact::class)->middleware('auth');
+Route::resource('/elements', Elements::class)->middleware('auth');
+Route::resource('/home_Labs', Homelabs::class)->middleware('auth');
+Route::resource('/service', Service::class)->middleware('auth');
+
+// mes routes pour mon backend
+
+
+
+
+
 
 Auth::routes();
 

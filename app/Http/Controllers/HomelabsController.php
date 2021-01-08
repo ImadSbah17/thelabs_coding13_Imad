@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Homelabs;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class HomelabsController extends Controller
 {
@@ -13,8 +14,8 @@ class HomelabsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        //
+    { 
+       
     }
 
     /**
@@ -55,9 +56,10 @@ class HomelabsController extends Controller
      * @param  \App\Models\Homelabs  $homelabs
      * @return \Illuminate\Http\Response
      */
-    public function edit(Homelabs $homelabs)
+    public function edit($id)
     {
-        //
+        $datas = Homelabs::find($id);
+        return view('backend.homeBACK',compact('datas'));
     }
 
     /**
@@ -67,9 +69,21 @@ class HomelabsController extends Controller
      * @param  \App\Models\Homelabs  $homelabs
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Homelabs $homelabs)
+    public function update(Request $request,$id)
     {
-        //
+       $update = Homelabs::find($id); 
+
+       $update->liens1 = $request->liens1;
+       $update->liens2 = $request->liens2;
+       $update->liens3 = $request->liens3;
+       $update->liens4 = $request->liens4;
+
+       $update->save();
+
+
+
+
+       return redirect()->back();
     }
 
     /**

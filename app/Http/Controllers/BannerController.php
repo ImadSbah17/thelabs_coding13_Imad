@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Contact;
+use App\Models\Banner;
 use Illuminate\Http\Request;
+use Image;
 
-class ContactController extends Controller
+class BannerController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +15,7 @@ class ContactController extends Controller
      */
     public function index()
     {
-        
+        //
     }
 
     /**
@@ -41,10 +42,10 @@ class ContactController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Contact  $contact
+     * @param  \App\Models\Banner  $banner
      * @return \Illuminate\Http\Response
      */
-    public function show(Contact $contact)
+    public function show(Banner $banner)
     {
         //
     }
@@ -52,10 +53,10 @@ class ContactController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Contact  $contact
+     * @param  \App\Models\Banner  $banner
      * @return \Illuminate\Http\Response
      */
-    public function edit(Contact $contact)
+    public function edit(Banner $banner)
     {
         //
     }
@@ -64,21 +65,28 @@ class ContactController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Contact  $contact
+     * @param  \App\Models\Banner  $banner
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Contact $contact)
+    public function update(Request $request, $id)
     {
-        //
+        $updateLogoSlogan  =  Banner::find($id);
+        $updateLogoSlogan->src  =  $request->file('updateImageLogo')->hashName();
+        $updateLogoSlogan->texte  =  $request->texte;
+        $updateLogoSlogan->save();
+        $request->file('updateImageLogo')->storePublicly('img', 'public');
+        $img  =  Image::make('img/'.$updateLogoSlogan->src)->resize(100,80);
+        $img->save('img/small-'.$updateLogoSlogan->src);
+        return  redirect()->back();
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Contact  $contact
+     * @param  \App\Models\Banner  $banner
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Contact $contact)
+    public function destroy(Banner $banner)
     {
         //
     }

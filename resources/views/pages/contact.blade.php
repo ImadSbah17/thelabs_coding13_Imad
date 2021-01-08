@@ -2,6 +2,31 @@
 
 @section('content')
 	
+	<!-- Page Preloder -->
+	<div id="preloder">
+		<div class="loader">
+			<img src="img/logo.png" alt="">
+			<h2>Loading.....</h2>
+		</div>
+	</div>
+
+	<!-- Page header -->
+		<div class="page-top-section">
+			<div class="overlay"></div>
+			<div class="container text-right">
+				<div class="page-info">
+					<h2>Contact</h2>
+					<div class="page-links">
+						<a href="#">Home</a>
+						<span>Contact</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	<!-- Page header end -->
+	
+
+
 	<!-- Google map -->
 	<div class="map" id="map-area"></div>
 

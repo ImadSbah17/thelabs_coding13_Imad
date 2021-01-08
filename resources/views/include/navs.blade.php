@@ -1,7 +1,7 @@
 <!-- Header section -->
 <header class="header-section">
     <div class="logo">
-        <img src="img/logo.png" alt=""><!-- Logo -->
+    <img src="{{asset('img/small-'.$banner[0]->src)}}" alt=""><!-- Logo -->
     </div>
     <!-- Navigation -->
     <div class="responsive"><i class="fa fa-bars"></i></div>
@@ -10,23 +10,10 @@
             <li><a href="home.html">Home</a></li>
             <li><a href="services.html">Services</a></li>
             <li class="active"><a href="blog.html">Blog</a></li>
-            <li><a href="contact.html">Contact</a></li>
+        <li><a href="contact.html">{{$datas[0]->liens1}}</a></li>
             <li><a href="elements.html">Elements</a></li>
         </ul>
     </nav>
 </header>
+
 <!-- Header section end -->
-<!-- Page header -->
-<div class="page-top-section">
-    <div class="overlay"></div>
-    <div class="container text-right">
-        <div class="page-info">
-            <h2>Blog</h2>
-            <div class="page-links">
-                <a href="#">Home</a>
-                <span>Blog</span>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Page header end-->

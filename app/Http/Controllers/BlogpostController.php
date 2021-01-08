@@ -14,7 +14,7 @@ class BlogpostController extends Controller
      */
     public function index()
     {
-        //
+
     }
 
     /**

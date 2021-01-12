@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             HomelabsSeeder::class,
             BannerSeeder::class,
+            ServiceSeeder::class,
         ]);
     }
 }

@@ -15,7 +15,8 @@ class BannerController extends Controller
      */
     public function index()
     {
-        //
+        $banner = Banner::all();
+        return view('pages.home_Labs',compact('banner'));
     }
 
     /**
@@ -56,9 +57,10 @@ class BannerController extends Controller
      * @param  \App\Models\Banner  $banner
      * @return \Illuminate\Http\Response
      */
-    public function edit(Banner $banner)
+    public function edit( $banner)
     {
-        //
+        $datas = Banner::find($banner);
+        return view('backend.bannerBACK',compact('datas'));
     }
 
     /**
@@ -70,14 +72,18 @@ class BannerController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $updateLogoSlogan  =  Banner::find($id);
-        $updateLogoSlogan->src  =  $request->file('updateImageLogo')->hashName();
-        $updateLogoSlogan->texte  =  $request->texte;
+        // $imgTest = Image::make('https://d1fmx1rbmqrxrr.cloudfront.net/cnet/optim/i/edit/2019/04/eso1644bsmall__w770.jpg')->resize(200,50);
+        // return $imgTest->response('jpg');
+
+        $updateLogoSlogan =  Banner::find($id);
+        $updateLogoSlogan->src=  $request->file('updateImageLogo')->hashName();
+        $updateLogoSlogan->texte=  $request->texte;
         $updateLogoSlogan->save();
         $request->file('updateImageLogo')->storePublicly('img', 'public');
-        $img  =  Image::make('img/'.$updateLogoSlogan->src)->resize(100,80);
+        $img = Image::make('img/'.$updateLogoSlogan->src)->resize(100,80);
         $img->save('img/small-'.$updateLogoSlogan->src);
         return  redirect()->back();
+        
     }
 
     /**

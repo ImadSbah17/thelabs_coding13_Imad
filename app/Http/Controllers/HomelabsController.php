@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Banner;
+use App\Models\Bannerimg;
 use App\Models\Homelabs;
+use App\Models\Service;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -15,6 +18,13 @@ class HomelabsController extends Controller
      */
     public function index()
     { 
+        $datas = Homelabs::all();
+        $banner = Banner::all();
+        $bannerimg = Bannerimg::all();
+        $service = Service::all()->random(3);
+
+        return view('pages.home_Labs',compact('datas','banner','bannerimg'));
+
        
     }
 

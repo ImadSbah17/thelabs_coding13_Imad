@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\BannerController;
+use App\Http\Controllers\BannerimgController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\BlogpostController;
 use App\Http\Controllers\ContactController;
@@ -7,6 +9,7 @@ use App\Http\Controllers\ElementsController;
 use App\Http\Controllers\HomelabsController;
 use App\Http\Controllers\ServiceController;
 use App\Models\Banner;
+use App\Models\Bannerimg;
 use App\Models\Homelabs;
 use Illuminate\Support\Facades\Route;
 
@@ -21,12 +24,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    $datas = Homelabs::all();
-    $banner = Banner::all();
+// Route::get('/', function () {
+//     $datas = Homelabs::all();
+//     $banner = Banner::all();
 
-    return view('pages.home_Labs',compact('datas','banner'));
-});
+//     return view('pages.home_Labs',compact('datas','banner'));
+// });
 
 Route::get('/template', function () {
     $datas = Homelabs::all();
@@ -43,10 +46,16 @@ Route::resource('/blog-post', BlogpostController::class)->middleware('auth');
 Route::resource('/blog', BlogController::class)->middleware('auth');
 Route::resource('/contact', ContactController::class)->middleware('auth');
 Route::resource('/elements', ElementsController::class)->middleware('auth');
-Route::resource('/home_Labs', HomelabsController::class)->middleware('auth');
 Route::resource('/service', ServiceController::class)->middleware('auth');
 
+
 // mes routes pour mon backend
+
+Route::resource('/caroussel', BannerimgController::class)->middleware('auth');
+Route::resource('banner',BannerController::class);
+Route::resource('/home_Labs', HomelabsController::class)->middleware('auth');
+
+
 
 
 

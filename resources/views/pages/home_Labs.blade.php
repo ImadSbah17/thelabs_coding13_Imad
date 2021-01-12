@@ -5,13 +5,14 @@
 		<div class="hero-content">
 			<div class="hero-center">
 			<img src="{{asset('img/'.$banner[0]->src)}}" alt="">
-				<p>Get your freebie template now!</p>
+				<p>{{$banner[0]->texte}}</p>
 			</div>
 		</div>
 		<!-- slider -->
 		<div id="hero-slider" class="owl-carousel">
-			<div class="item  hero-item" data-bg="img/01.jpg"></div>
-			<div class="item  hero-item" data-bg="img/02.jpg"></div>
+			@foreach ($bannerimg as $elem)
+			<div class="item  hero-item" data-bg="{{asset('img/'.$elem->src)}}"></div>		
+			@endforeach
 		</div>
 	</div>
 	<!-- Intro Section -->

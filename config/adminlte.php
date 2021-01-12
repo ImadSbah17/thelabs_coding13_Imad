@@ -253,16 +253,20 @@ return [
             'icon' => 'fas fa-fw fa-lock',
         ],
         [
-            'text'    => 'backend',
-            'icon'    => 'fas fa-fw fa-share',
+            'text'    => 'homeLabs',
+            'icon'    => 'fas fa-home',
             'submenu' => [
                 [
-                    'text' => 'edit/update',
+                    'text' => 'liens',
                     'url'  => '/home_Labs/1/edit',
                 ],
                 [
-                    'text' => 'level_one',
-                    'url'  => '#',
+                    'text' => 'banner',
+                    'url'  => '/banner/1/edit',
+                ],
+                [
+                    'text' => 'caroussel',
+                    'url'  => '/caroussel/create',
                 ],
             ],
         ],

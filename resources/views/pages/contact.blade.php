@@ -28,7 +28,8 @@
 
 
 	<!-- Google map -->
-	<div class="map" id="map-area"></div>
+		<iframe src="{{$contact[0]->maps}}" frameborder="0" width="100%" height="600px"></iframe>
+
 
 
 	<!-- Contact section -->

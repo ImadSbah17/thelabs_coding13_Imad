@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Banner;
 use App\Models\Contact;
+use App\Models\Homelabs;
 use Illuminate\Http\Request;
 
 class ContactController extends Controller
@@ -14,7 +16,10 @@ class ContactController extends Controller
      */
     public function index()
     {
-        
+        $datas = Homelabs::all();
+        $banner = Banner::all();
+        $contact = Contact::all();
+        return view('pages.contact',compact('datas','banner','contact'));
     }
 
     /**
@@ -55,9 +60,11 @@ class ContactController extends Controller
      * @param  \App\Models\Contact  $contact
      * @return \Illuminate\Http\Response
      */
-    public function edit(Contact $contact)
+    public function edit($id)
     {
-        //
+        $contact = Contact::find($id);
+        
+        return view('backend.mapsBE_CONTACT',compact('contact'));
     }
 
     /**
@@ -67,9 +74,12 @@ class ContactController extends Controller
      * @param  \App\Models\Contact  $contact
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Contact $contact)
+    public function update(Request $request,$id)
     {
-        //
+        $contact = Contact::find($id);
+        $contact->maps = $request->maps;
+        $contact->save();
+        return redirect()->back();
     }
 
     /**

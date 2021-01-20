@@ -5,12 +5,20 @@ use App\Http\Controllers\BannerimgController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\BlogpostController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\ContacthomeController;
 use App\Http\Controllers\ElementsController;
 use App\Http\Controllers\HomelabsController;
+use App\Http\Controllers\PresentationFoMyHomeController;
+use App\Http\Controllers\ReadyController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\ServicevraiController;
+use App\Http\Controllers\TestimonialController;
+use App\Http\Controllers\VideoController;
 use App\Models\Banner;
 use App\Models\Bannerimg;
 use App\Models\Homelabs;
+use App\Models\PresentationFoMyHome;
+use App\Models\Servicevrai;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -46,14 +54,25 @@ Route::resource('/blog-post', BlogpostController::class)->middleware('auth');
 Route::resource('/blog', BlogController::class)->middleware('auth');
 Route::resource('/contact', ContactController::class)->middleware('auth');
 Route::resource('/elements', ElementsController::class)->middleware('auth');
-Route::resource('/service', ServiceController::class)->middleware('auth');
+Route::resource('/home_Labs', HomelabsController::class)->middleware('auth');
 
 
 // mes routes pour mon backend
 
+Route::resource('/service', ServiceController::class)->middleware('auth');
 Route::resource('/caroussel', BannerimgController::class)->middleware('auth');
 Route::resource('banner',BannerController::class);
-Route::resource('/home_Labs', HomelabsController::class)->middleware('auth');
+Route::resource('/presentationHome',PresentationFoMyHomeController::class)->middleware('auth');
+Route::resource('/testimonial',TestimonialController::class)->middleware('auth');
+Route::resource('/servicevrai',ServicevraiController::class)->middleware('auth');
+Route::resource('/ready',ReadyController::class)->middleware('auth');
+Route::resource('/contactHOME',ContacthomeController::class)->middleware('auth');
+Route::resource('/video',VideoController::class)->middleware('auth');
+
+
+
+
+
 
 
 

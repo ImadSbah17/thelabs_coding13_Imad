@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Banner;
+use App\Models\Homelabs;
 use App\Models\Service;
+use App\Models\Servicerapide;
 use Illuminate\Http\Request;
 
 class ServiceController extends Controller
@@ -14,7 +17,14 @@ class ServiceController extends Controller
      */
     public function index()
     {
-        //
+        $datas = Homelabs::all();
+        $banner = Banner::all();
+        $serviceleft = Service::orderBy('id','desc')->take(3)->get();
+        $serviceright = Service::orderBy('id','desc')->skip(3)->take(3)->get();
+        $service = Servicerapide::all();
+    
+        
+        return view('pages.services',compact('banner','datas','serviceleft','serviceright','service'));
     }
 
     /**
@@ -24,7 +34,7 @@ class ServiceController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -55,9 +65,10 @@ class ServiceController extends Controller
      * @param  \App\Models\Service  $service
      * @return \Illuminate\Http\Response
      */
-    public function edit(Service $service)
+    public function edit($id)
     {
-        //
+        $service = Servicerapide::find($id);
+        return view('backend.serviceBE_SERVICE',compact('service'));
     }
 
     /**
@@ -67,9 +78,14 @@ class ServiceController extends Controller
      * @param  \App\Models\Service  $service
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Service $service)
+    public function update(Request $request,$id)
     {
-        //
+        $service = Servicerapide::find($id);
+        $service->titre = $request->titre;
+        $service->bouton = $request->bouton;
+
+        $service->save();
+        return redirect()->back();
     }
 
     /**

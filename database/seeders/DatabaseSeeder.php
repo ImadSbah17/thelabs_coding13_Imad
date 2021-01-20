@@ -2,6 +2,11 @@
 
 namespace Database\Seeders;
 
+use App\Models\Contacthome;
+use App\Models\PresentationFoMyHome;
+use App\Models\Servicerapide;
+use App\Models\Servicevrai;
+use App\Models\Vidéo;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -17,6 +22,15 @@ class DatabaseSeeder extends Seeder
             HomelabsSeeder::class,
             BannerSeeder::class,
             ServiceSeeder::class,
+            ReadySeeder::class,
+            ContacthomeSeeder::class,
+            TestimonialSeeder::class,
+            ServicevraiSeeder::class,
+            TeamSeeder::class,
+            VideoSeeder::class,
+            PresentationFoMyHomeSeeder::class,
+            ServicerapideSeeder::class,
+            ContactSeeder::class,
         ]);
     }
 }

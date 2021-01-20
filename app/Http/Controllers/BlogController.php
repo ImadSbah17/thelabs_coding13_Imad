@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Banner;
 use App\Models\Blog;
+use App\Models\Homelabs;
 use Illuminate\Http\Request;
 
 class BlogController extends Controller
@@ -14,7 +16,9 @@ class BlogController extends Controller
      */
     public function index()
     {
-        
+        $datas = Homelabs::all();
+        $banner = Banner::all();
+        return view('pages.blog',compact('datas','banner'));
     }
 
     /**

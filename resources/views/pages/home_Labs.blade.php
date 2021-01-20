@@ -26,35 +26,19 @@
 			<div class="container">
 				<div class="row">
 					<!-- single card -->
+					@foreach ($service as $element)
+						
 					<div class="col-md-4 col-sm-6">
 						<div class="lab-card">
 							<div class="icon">
-								<i class="flaticon-023-flask"></i>
+								<i class="{{$element->icon}}"></i>
 							</div>
-							<h2>Get in the lab</h2>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla..</p>
+							<h2>{{$element->title}}</h2>
+							<p>{{$element->para}}</p>
 						</div>
 					</div>
-					<!-- single card -->
-					<div class="col-md-4 col-sm-6">
-						<div class="lab-card">
-							<div class="icon">
-								<i class="flaticon-011-compass"></i>
-							</div>
-							<h2>Projects online</h2>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla..</p>
-						</div>
-					</div>
-					<!-- single card -->
-					<div class="col-md-4 col-sm-12">
-						<div class="lab-card">
-							<div class="icon">
-								<i class="flaticon-037-idea"></i>
-							</div>
-							<h2>SMART MARKETING</h2>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla..</p>
-						</div>
-					</div>
+					@endforeach
+					
 				</div>
 			</div>
 		</div>
@@ -65,25 +49,25 @@
 		<div class="about-contant">
 			<div class="container">
 				<div class="section-title">
-					<h2>Get in <span>the Lab</span> and discover the world</h2>
+					<h2><span>the Lab</span>and discover the world</h2>
 				</div>
 				<div class="row">
 					<div class="col-md-6">
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequat ante ac congue. Quisque porttitor porttitor tempus. Donec maximus ipsum non ornare vporttitor porttitorestibulum. Sed libero nibh, feugiat at enim id, bibendum sollicitudin arcu.</p>
+						<p>{{$presentation[0]->texte}}</p>
 					</div>
 					<div class="col-md-6">
-						<p>Cras ex mauris, ornare eget pretium sit amet, dignissim et turpis. Nunc nec maximus dui, vel suscipit dolor. Donec elementum velit a orci facilisis rutrum. Nam convallis vel erat id dictum. Sed ut risus in orci convallis viverra a eget nisi. Aenean pellentesque elit vitae eros dignissim ultrices. Quisque porttitor porttitorlaoreet vel risus et luctus.</p>
+						<p>{{$presentation[0]->textebis}}</p>
 					</div>
 				</div>
 				<div class="text-center mt60">
-					<a href="" class="site-btn">Browse</a>
+					<a href="" class="site-btn">{{$presentation[0]->bouton}}</a>
 				</div>
 				<!-- popup video -->
 				<div class="intro-video">
 					<div class="row">
 						<div class="col-md-8 col-md-offset-2">
 							<img src="img/video.jpg" alt="">
-							<a href="https://www.youtube.com/watch?v=JgHfx2v9zOU" class="video-popup">
+							<a href="{{$video[0]->liens}}" class="video-popup">
 								<i class="fa fa-play"></i>
 							</a>
 						</div>
@@ -102,93 +86,25 @@
 			<div class="row">
 				<div class="col-md-8 col-md-offset-4">
 					<div class="section-title left">
-						<h2>What our clients say</h2>
+						<h2>{{$testimonial[0]->titre}}</h2>
 					</div>
 					<div class="owl-carousel" id="testimonial-slide">
 						<!-- single testimonial -->
-						<div class="testimonial">
-							<span>‘​‌‘​‌</span>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequa.</p>
-							<div class="client-info">
-								<div class="avatar">
-									<img src="img/avatar/01.jpg" alt="">
+						@foreach ($testimonial as $item)
+							<div class="testimonial">
+								<span>‘​‌‘​‌</span>
+								<p>{{$element->temoignage}}</p>
+								<div class="client-info">
+									<div class="avatar">
+										<img src="{{asset('img/'.$element->src)}}" alt="">
+									</div>
+									<div class="client-name">
+										<h2>{{$element->prenom}} {{$element->nom}}</h2>
+										<p>{{$element->fonction}}</p>
+									</div>
 								</div>
-								<div class="client-name">
-									<h2>Michael Smith</h2>
-									<p>CEO Company</p>
-								</div>
-							</div>
-						</div>
-						<!-- single testimonial -->
-						<div class="testimonial">
-							<span>‘​‌‘​‌</span>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequa.</p>
-							<div class="client-info">
-								<div class="avatar">
-									<img src="img/avatar/02.jpg" alt="">
-								</div>
-								<div class="client-name">
-									<h2>Michael Smith</h2>
-									<p>CEO Company</p>
-								</div>
-							</div>
-						</div>
-						<!-- single testimonial -->
-						<div class="testimonial">
-							<span>‘​‌‘​‌</span>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequa.</p>
-							<div class="client-info">
-								<div class="avatar">
-									<img src="img/avatar/01.jpg" alt="">
-								</div>
-								<div class="client-name">
-									<h2>Michael Smith</h2>
-									<p>CEO Company</p>
-								</div>
-							</div>
-						</div>
-						<!-- single testimonial -->
-						<div class="testimonial">
-							<span>‘​‌‘​‌</span>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequa.</p>
-							<div class="client-info">
-								<div class="avatar">
-									<img src="img/avatar/02.jpg" alt="">
-								</div>
-								<div class="client-name">
-									<h2>Michael Smith</h2>
-									<p>CEO Company</p>
-								</div>
-							</div>
-						</div>
-						<!-- single testimonial -->
-						<div class="testimonial">
-							<span>‘​‌‘​‌</span>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequa.</p>
-							<div class="client-info">
-								<div class="avatar">
-									<img src="img/avatar/01.jpg" alt="">
-								</div>
-								<div class="client-name">
-									<h2>Michael Smith</h2>
-									<p>CEO Company</p>
-								</div>
-							</div>
-						</div>
-						<!-- single testimonial -->
-						<div class="testimonial">
-							<span>‘​‌‘​‌</span>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla. Nulla sit amet luctus dolor. Etiam finibus consequa.</p>
-							<div class="client-info">
-								<div class="avatar">
-									<img src="img/avatar/02.jpg" alt="">
-								</div>
-								<div class="client-name">
-									<h2>Michael Smith</h2>
-									<p>CEO Company</p>
-								</div>
-							</div>
-						</div>
+							</div>	
+						@endforeach
 					</div>
 				</div>
 			</div>
@@ -205,114 +121,23 @@
 			</div>
 			<div class="row">
 				<!-- single service -->
-				<div class="col-md-4 col-sm-6">
-					<div class="service">
-						<div class="icon">
-							<i class="flaticon-023-flask"></i>
-						</div>
-						<div class="service-text">
-							<h2>Get in the lab</h2>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla..</p>
-						</div>
-					</div>
-				</div>
-				<!-- single service -->
-				<div class="col-md-4 col-sm-6">
-					<div class="service">
-						<div class="icon">
-							<i class="flaticon-011-compass"></i>
-						</div>
-						<div class="service-text">
-							<h2>Projects online</h2>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla..</p>
+				@foreach ($servicevrai as $elem)
+				
+					<div class="col-md-4 col-sm-6">
+						<div class="service">
+							<div class="icon">
+								<i class="{{$elem->icon}}"></i>
+							</div>
+							<div class="service-text">
+								<h2>{{$elem->titre}}</h2>
+								<p>{{$elem->texte}}</p>
+							</div>
 						</div>
 					</div>
-				</div>
-				<!-- single service -->
-				<div class="col-md-4 col-sm-6">
-					<div class="service">
-						<div class="icon">
-							<i class="flaticon-037-idea"></i>
-						</div>
-						<div class="service-text">
-							<h2>SMART MARKETING</h2>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla..</p>
-						</div>
-					</div>
-				</div>
-				<!-- single service -->
-				<div class="col-md-4 col-sm-6">
-					<div class="service">
-						<div class="icon">
-							<i class="flaticon-039-vector"></i>
-						</div>
-						<div class="service-text">
-							<h2>Social Media</h2>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla..</p>
-						</div>
-					</div>
-				</div>
-				<!-- single service -->
-				<div class="col-md-4 col-sm-6">
-					<div class="service">
-						<div class="icon">
-							<i class="flaticon-036-brainstorming"></i>
-						</div>
-						<div class="service-text">
-							<h2>Brainstorming</h2>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla..</p>
-						</div>
-					</div>
-				</div>
-				<!-- single service -->
-				<div class="col-md-4 col-sm-6">
-					<div class="service">
-						<div class="icon">
-							<i class="flaticon-026-search"></i>
-						</div>
-						<div class="service-text">
-							<h2>Documented</h2>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla..</p>
-						</div>
-					</div>
-				</div>
-				<!-- single service -->
-				<div class="col-md-4 col-sm-6">
-					<div class="service">
-						<div class="icon">
-							<i class="flaticon-018-laptop-1"></i>
-						</div>
-						<div class="service-text">
-							<h2>Responsive</h2>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla..</p>
-						</div>
-					</div>
-				</div>
-				<!-- single service -->
-				<div class="col-md-4 col-sm-6">
-					<div class="service">
-						<div class="icon">
-							<i class="flaticon-043-sketch"></i>
-						</div>
-						<div class="service-text">
-							<h2>Retina ready</h2>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla..</p>
-						</div>
-					</div>
-				</div>
-				<!-- single service -->
-				<div class="col-md-4 col-sm-6">
-					<div class="service">
-						<div class="icon">
-							<i class="flaticon-012-cube"></i>
-						</div>
-						<div class="service-text">
-							<h2>Ultra modern</h2>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est, feugiat nec elementum id, suscipit id nulla..</p>
-						</div>
-					</div>
-				</div>
+				@endforeach
 			</div>
+			{{  $servicevrai->fragment('service')->links() }}
+
 			<div class="text-center">
 				<a href="" class="site-btn">Browse</a>
 			</div>
@@ -364,12 +189,12 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-9">
-					<h2>Are you ready to stand out?</h2>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur leo est.</p>
+					<h2>{{$ready[0]->titre}}</h2>
+					<p>{{$ready[0]->texte}}</p>
 				</div>
 				<div class="col-md-3">
 					<div class="promo-btn-area">
-						<a href="" class="site-btn btn-2">Browse</a>
+						<a href="" class="site-btn btn-2">{{$ready[0]->bouton}}</a>
 					</div>
 				</div>
 			</div>
@@ -385,13 +210,13 @@
 				<!-- contact info -->
 				<div class="col-md-5 col-md-offset-1 contact-info col-push">
 					<div class="section-title left">
-						<h2>Contact us</h2>
+						<h2>{{$contacthome[0]->titre}}</h2>
 					</div>
-					<p>Cras ex mauris, ornare eget pretium sit amet, dignissim et turpis. Nunc nec maximus dui, vel suscipit dolor. Donec elementum velit a orci facilisis rutrum. </p>
+					<p>{{$contacthome[0]->texte}}</p>
 					<h3 class="mt60">Main Office</h3>
-					<p class="con-item">C/ Libertad, 34 <br> 05200 Arévalo </p>
-					<p class="con-item">0034 37483 2445 322</p>
-					<p class="con-item">hello@company.com</p>
+					<p class="con-item">{{$contacthome[0]->contact1}}</p>
+					<p class="con-item">{{$contacthome[0]->contact2}}</p>
+					<p class="con-item">{{$contacthome[0]->contact3}}</p>
 				</div>
 				<!-- contact form -->
 				<div class="col-md-6 col-pull">

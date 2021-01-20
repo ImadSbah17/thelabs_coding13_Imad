@@ -4,8 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Models\Banner;
 use App\Models\Bannerimg;
+use App\Models\Contacthome;
 use App\Models\Homelabs;
+use App\Models\PresentationFoMyHome;
+use App\Models\Ready;
 use App\Models\Service;
+use App\Models\Servicevrai;
+use App\Models\Testimonial;
+use App\Models\Video;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -16,16 +22,31 @@ class HomelabsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    //* c'est ici que je renvoi la page home *//
     public function index()
     { 
         $datas = Homelabs::all();
         $banner = Banner::all();
         $bannerimg = Bannerimg::all();
         $service = Service::all()->random(3);
+        $presentation = PresentationFoMyHome::all();
+        $testimonial = Testimonial::all();
+        $servicevrai = Servicevrai::orderBy('id','desc')->paginate(9)
+        ;
+        $ready = Ready::all();
+        $contacthome = Contacthome::all();
+        $video = Video::all();
 
-        return view('pages.home_Labs',compact('datas','banner','bannerimg'));
+        // $titre = $presentation[0]->titre;
+        // $before = Str::before($titre, '(');
+        // $after = Str::after($titre,')');
+        // $between = Str::between($titre, '(', ')');
 
-       
+
+        
+
+        return view('pages.home_Labs',compact('datas','banner','bannerimg','service','presentation','testimonial','servicevrai','ready','contacthome','video'));
     }
 
     /**

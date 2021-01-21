@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Banner;
+use App\Models\Contact;
 use App\Models\Elements;
+use App\Models\Homelabs;
 use Illuminate\Http\Request;
 
 class ElementsController extends Controller
@@ -14,7 +17,10 @@ class ElementsController extends Controller
      */
     public function index()
     {
-        //
+        $datas = Homelabs::all();
+        $banner = Banner::all();
+        $contact = Contact::all();
+        return view('pages.elements',compact('datas','banner','contact'));
     }
 
     /**

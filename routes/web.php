@@ -55,11 +55,11 @@ Route::resource('/blog', BlogController::class)->middleware('auth');
 Route::resource('/contact', ContactController::class)->middleware('auth');
 Route::resource('/elements', ElementsController::class)->middleware('auth');
 Route::resource('/home_Labs', HomelabsController::class)->middleware('auth');
+Route::resource('/service', ServiceController::class)->middleware('auth');
 
 
 // mes routes pour mon backend
 
-Route::resource('/service', ServiceController::class)->middleware('auth');
 Route::resource('/caroussel', BannerimgController::class)->middleware('auth');
 Route::resource('banner',BannerController::class);
 Route::resource('/presentationHome',PresentationFoMyHomeController::class)->middleware('auth');

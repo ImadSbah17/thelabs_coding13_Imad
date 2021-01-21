@@ -8,7 +8,7 @@
 			<div class="page-info">
 				<h2>Blog</h2>
 				<div class="page-links">
-					<a href="#">Home</a>
+					<a href="/home_Labs">Home</a>
 					<span>Blog</span>
 				</div>
 			</div>

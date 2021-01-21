@@ -7,7 +7,7 @@
 @csrf
 
 <div class="container">
-    <h1 class="text-center mb-5">Modifier l'image dans la caroussel</h1>
+    <h1 class="text-center mb-5">Modifieter texte dans la présentation</h1>
     <table class="table">
       <thead>
         <tr>

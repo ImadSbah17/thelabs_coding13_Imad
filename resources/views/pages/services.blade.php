@@ -21,7 +21,7 @@
 			<div class="page-info">
 				<h2>Services</h2>
 				<div class="page-links">
-					<a href="#">Home</a>
+					<a href="/home_Labs">Home</a>
 					<span>Services</span>
 				</div>
 			</div>

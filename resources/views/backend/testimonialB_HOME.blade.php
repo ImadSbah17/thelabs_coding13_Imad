@@ -4,7 +4,7 @@
 <form action="/testimonial" method="post" enctype="multipart/form-data">
 @csrf
      <div style="height: 200px" class="container w-50 text-center pb-5">
-        <h1 class="text-center">Rajout de texte 'presentation'</h1>
+        <h1 class="text-center">Rajout de texte 'testimonial'</h1>
         <br>
         <input type="text" name="nom" placeholder="nom">
         <br>
@@ -16,7 +16,6 @@
         <br>
         <br>
         <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="temoignage" placeholder="temoignage"></textarea>
-
         <br>
         <input type="file" name="src">
         <br>
@@ -53,6 +52,7 @@
         </tr>
       </thead>
       <tbody>
+
         @foreach ($testimonial as $elem)
                     <th scope="row">{{$elem->id}}</th>
                     <td><p>{{$elem->nom}}</p></td>
@@ -61,14 +61,21 @@
                     <td><p>{{$elem->temoignage}}</p></td>
                     <td><p>{{$elem->src}}</p></td>
 
-                    <td><a href="/testimonial/{{$elem->id}}/edit"><button type="submit" class="btn btn-success">edit</button></a></td>
-                    <td><form action="/testimonial/{{$elem->id}}" method="post">
+                    <td>
+                      <a href="/testimonial/{{$elem->id}}/edit">
+                        <button type="submit" class="btn btn-success">edit</button>
+                      </a>
+                    </td>
+
+                    <td>
+                      <form action="/testimonial/{{$elem->id}}" method="post">
                       @csrf
                       @method('delete')
-                      <button type="submit" class="btn btn-danger">Delete</button>
-                    </form></td>
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                      </form>
+                    </td>
                   </tbody>
-                  @endforeach
-                </table>
-  </div>
+        @endforeach
+      </table>
+</div>
 @endsection

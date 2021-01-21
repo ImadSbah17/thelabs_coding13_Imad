@@ -17,7 +17,7 @@
 				<div class="page-info">
 					<h2>Contact</h2>
 					<div class="page-links">
-						<a href="#">Home</a>
+						<a href="/home_Labs">Home</a>
 						<span>Contact</span>
 					</div>
 				</div>

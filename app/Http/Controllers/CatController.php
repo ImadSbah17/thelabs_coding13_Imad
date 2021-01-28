@@ -2,13 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Banner;
-use App\Models\Contact;
-use App\Models\Elements;
-use App\Models\Homelabs;
+use App\Models\Cat;
 use Illuminate\Http\Request;
 
-class ElementsController extends Controller
+class CatController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,10 +14,7 @@ class ElementsController extends Controller
      */
     public function index()
     {
-        $datas = Homelabs::all();
-        $banner = Banner::all();
-        $contact = Contact::all();
-        return view('pages.elements',compact('datas','banner','contact'));
+        //
     }
 
     /**
@@ -41,27 +35,27 @@ class ElementsController extends Controller
      */
     public function store(Request $request)
     {
-        
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Elements  $elements
+     * @param  \App\Models\Cat  $cat
      * @return \Illuminate\Http\Response
      */
-    public function show(Elements $elements)
+    public function show(Cat $cat)
     {
-        
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Elements  $elements
+     * @param  \App\Models\Cat  $cat
      * @return \Illuminate\Http\Response
      */
-    public function edit(Elements $elements)
+    public function edit(Cat $cat)
     {
         //
     }
@@ -70,22 +64,22 @@ class ElementsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Elements  $elements
+     * @param  \App\Models\Cat  $cat
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Elements $elements)
+    public function update(Request $request, Cat $cat)
     {
-        
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Elements  $elements
+     * @param  \App\Models\Cat  $cat
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Elements $elements)
+    public function destroy(Cat $cat)
     {
-        
+        //
     }
 }

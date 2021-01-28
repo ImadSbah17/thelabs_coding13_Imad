@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Banner;
 use App\Models\Blog;
+use App\Models\Cat;
 use App\Models\Homelabs;
+use App\Models\Tag;
 use Illuminate\Http\Request;
 
 class BlogController extends Controller
@@ -18,7 +20,8 @@ class BlogController extends Controller
     {
         $datas = Homelabs::all();
         $banner = Banner::all();
-        return view('pages.blog',compact('datas','banner'));
+        $blog = Blog::all();
+        return view('pages.blog',compact('datas','banner','blog'));
     }
 
     /**
@@ -28,7 +31,10 @@ class BlogController extends Controller
      */
     public function create()
     {
-        //
+        $blog = Blog::all();
+        $tag = Tag::all();
+        $cat = Cat::all();
+        return view('backend.blogB',compact('blog','tag','cat'));
     }
 
     /**
@@ -39,7 +45,16 @@ class BlogController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $blog = new Blog();
+        $blog->texte = $request->texte;
+        $blog->titre = $request->titre;
+        $blog->src = $request->file('src')->hashName();
+        $blog->save();
+        $blog->tag()->sync($request->tag);
+        $blog->cat()->sync($request->cat);
+        $request->file('src')->storePublicly('img/blog/','public');
+        return redirect()->back();
+        
     }
 
     /**
@@ -59,9 +74,15 @@ class BlogController extends Controller
      * @param  \App\Models\Blog  $blog
      * @return \Illuminate\Http\Response
      */
-    public function edit(Blog $blog)
+    public function edit($id)
     {
-        //
+        $blog = Blog::find($id);
+        $tag = Tag::all();
+        $cat = Cat::all();
+
+
+        return view('backend.blog-postBE',compact('blog','tag','cat'));
+        
     }
 
     /**
@@ -71,9 +92,17 @@ class BlogController extends Controller
      * @param  \App\Models\Blog  $blog
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Blog $blog)
+    public function update(Request $request,$id)
     {
-        //
+        $blog = Blog::find($id);
+        $blog->texte = $request->texte;
+        $blog->titre = $request->titre;
+        $blog->src = $request->file('src')->hashName();
+        $blog->save();
+        $blog->tag()->sync($request->tag);
+        $blog->cat()->sync($request->cat);
+        $request->file('src')->storePublicly('img/blog/','public');
+
     }
 
     /**

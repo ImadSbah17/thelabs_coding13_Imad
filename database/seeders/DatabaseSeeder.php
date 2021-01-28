@@ -31,6 +31,11 @@ class DatabaseSeeder extends Seeder
             PresentationFoMyHomeSeeder::class,
             ServicerapideSeeder::class,
             ContactSeeder::class,
+            BlogSeeder::class,
+            TagSeeder::class,
+            CatSeeder::class,
+            blog_tag::class,
+            blog_cat::class,
         ]);
     }
 }

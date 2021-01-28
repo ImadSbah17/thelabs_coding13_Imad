@@ -10,10 +10,6 @@
 		</div>
 	</div>
 
-
-
-
-
 	<!-- Page header -->
 	<div class="page-top-section">
 		<div class="overlay"></div>

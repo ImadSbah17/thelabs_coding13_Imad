@@ -316,6 +316,17 @@ return [
                 
             ],
         ],
+        [
+            'text'    => 'blog',
+            'icon'    => 'fas fa-address-book',
+            'submenu' => [
+                [
+                    'text' => 'blog',
+                    'url'  => '/blog/create',
+                ],
+                
+            ],
+        ],
         ['header' => 'labels'],
         [
             'text'       => 'important',

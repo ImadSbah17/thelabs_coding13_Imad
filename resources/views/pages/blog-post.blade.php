@@ -6,7 +6,7 @@
 		<div class="overlay"></div>
 		<div class="container text-right">
 			<div class="page-info">
-				<h2>oh</h2>
+				<h2>Home</h2>
 				<div class="page-links">
 					<a href="/home_Labs">Home</a>
 					<span>Blog</span>
